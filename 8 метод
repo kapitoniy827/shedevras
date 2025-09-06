@@ -1,0 +1,24 @@
+public class StringRepeater {
+    // Метод принимает строку и число повторений
+    public void printStringMultipleTimes(String text, int count) {
+        // Проверяем, что количество повторений не отрицательное
+        if (count < 0) {
+            System.out.println("Количество повторений должно быть положительным числом");
+            return;
+        }
+        
+        // Повторяем вывод строки указанное количество раз
+        for (int i = 0; i < count; i++) {
+            System.out.println(text);
+        }
+    }
+
+    public static void main(String[] args) {
+        StringRepeater repeater = new StringRepeater();
+        
+        // Примеры использования метода
+        repeater.printStringMultipleTimes("Привет", 3); // Выведет "Привет" 3 раза
+        repeater.printStringMultipleTimes("Тест", 0);   // Ничего не выведет
+        repeater.printStringMultipleTimes("Сообщение", 5); // Выведет 5 раз
+    }
+}
