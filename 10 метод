@@ -1,0 +1,38 @@
+public class BitInverter {
+    public static void main(String[] args) {
+        // Создаем исходный массив
+        int[] array = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        
+        // Выводим исходный массив
+        System.out.println("Исходный массив:");
+        printArray(array);
+        
+        // Инвертируем значения
+        invertBits(array);
+        
+        // Выводим результат
+        System.out.println("\nИзмененный массив:");
+        printArray(array);
+    }
+    
+    // Метод для инвертирования битов
+    public static void invertBits(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            // Меняем 0 на 1 и 1 на 0
+            if (array[i] == 0) {
+                array[i] = 1;
+            } else {
+                array[i] = 0;
+            }
+        }
+    }
+    
+    // Вспомогательный метод для вывода массива
+    public static void printArray(int[] array) {
+        System.out.print("[ ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println("]");
+    }
+}
