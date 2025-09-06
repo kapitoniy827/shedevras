@@ -1,0 +1,23 @@
+public class ArrayFiller {
+    public static void main(String[] args) {
+        // Создаем пустой массив длиной 100
+        int[] numbers = new int[100];
+        
+        // Заполняем массив
+        fillArray(numbers);
+        
+        // Выводим результат (первые 10 элементов для примера)
+        System.out.println("Первые 10 элементов массива:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
+    
+    // Метод для заполнения массива
+    public static void fillArray(int[] array) {
+        // Используем цикл для заполнения массива
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;  // i начинается с 0, поэтому добавляем 1
+        }
+    }
+}
