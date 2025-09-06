@@ -1,0 +1,17 @@
+public class NegativeChecker {
+    
+    public boolean isNegative(int number) {
+        return number < 0;
+    }
+
+    public static void main(String[] args) {
+        NegativeChecker checker = new NegativeChecker();
+        
+        // Примеры использования метода
+        System.out.println(checker.isNegative(-5));  
+        System.out.println(checker.isNegative(10));  
+        System.out.println(checker.isNegative(0));   
+        System.out.println(checker.isNegative(-100)); 
+        System.out.println(checker.isNegative(50));  
+    }
+}
