@@ -1,0 +1,18 @@
+public class SumChecker {
+    
+    public boolean isSumInRange(int num1, int num2) {
+        
+        int sum = num1 + num2;
+        return (sum >= 10 && sum <= 20);
+    }
+
+    public static void main(String[] args) {
+        SumChecker checker = new SumChecker();
+        
+        // Примеры использования метода
+        System.out.println(checker.isSumInRange(5, 10));  // true (15)
+        System.out.println(checker.isSumInRange(1, 2));   // false (3)
+        System.out.println(checker.isSumInRange(15, 5));  // true (20)
+        System.out.println(checker.isSumInRange(25, 0));  // false (25)
+    }
+}
