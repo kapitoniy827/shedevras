@@ -1,0 +1,58 @@
+public class PhoneBook {
+    // Хранилище данных: фамилия -> список телефонов
+    private Map<String, List<String>> contacts;
+
+    public PhoneBook() {
+        contacts = new HashMap<>();
+    }
+
+    // Добавление новой записи
+    public void add(String surname, String phoneNumber) {
+        if (contacts.containsKey(surname)) {
+            // Если фамилия уже есть, добавляем номер в существующий список
+            contacts.get(surname).add(phoneNumber);
+        } else {
+            // Создаем новый список для новой фамилии
+            List<String> phones = new ArrayList<>();
+            phones.add(phoneNumber);
+            contacts.put(surname, phones);
+        }
+    }
+
+    // Получение всех номеров по фамилии
+    public List<String> get(String surname) {
+        return contacts.getOrDefault(surname, Collections.emptyList());
+    }
+
+    // Метод для вывода всех контактов (для отладки)
+    public void printAllContacts() {
+        for (Map.Entry<String, List<String>> entry : contacts.entrySet()) {
+            System.out.println("Фамилия: " + entry.getKey());
+            System.out.println("Телефоны: " + String.join(", ", entry.getValue()));
+            System.out.println();
+        }
+    }
+}
+
+    // Пример использования
+    public class Main {
+        public static void main(String[] args) {
+            PhoneBook phoneBook = new PhoneBook();
+
+            // Добавляем контакты
+            phoneBook.add("Иванов", "8-999-123-45-67");
+            phoneBook.add("Петров", "8-999-765-43-21");
+            phoneBook.add("Иванов", "8-999-111-22-33"); // Однофамильцы
+            phoneBook.add("Сидорова", "8-999-555-55-55");
+
+            // Ищем контакты
+            System.out.println("Телефоны Иванова: " + phoneBook.get("Иванов"));
+            System.out.println("Телефоны Петрова: " + phoneBook.get("Петров"));
+            System.out.println("Телефоны Неизвестного: " + phoneBook.get("Неизвестный"));
+
+            // Выводим все контакты
+            System.out.println("\nВсе контакты:");
+            phoneBook.printAllContacts();
+        }
+    }
+}
