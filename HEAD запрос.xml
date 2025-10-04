@@ -1,0 +1,8 @@
+// HEAD запрос
+pm.test("Проверка статуса ответа", () => {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Проверка заголовков HEAD", () => {
+    pm.expect(pm.response.headers.get("X-Custom-Header")).to.equal("custom value");
+});

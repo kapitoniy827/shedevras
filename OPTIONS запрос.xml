@@ -1,0 +1,8 @@
+// OPTIONS запрос
+pm.test("Проверка статуса ответа", () => {
+    pm.response.to.have.status(204);
+});
+
+pm.test("Проверка заголовков OPTIONS", () => {
+    pm.expect(pm.response.headers.get("Allow")).to.equal("GET, POST, PUT, DELETE, PATCH, OPTIONS");
+});

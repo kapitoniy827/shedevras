@@ -1,0 +1,13 @@
+// GET запрос
+pm.test("Проверка статуса ответа", () => {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Проверка тела ответа GET", () => {
+    const response = pm.response.json();
+    pm.expect(response.args).to.eql({});
+    pm.expect(response.headers).to.have.property('host', 'postman-echo.com');
+    pm.expect(response.url).to.equal('https://postman-echo.com/get');
+});
+
+}
