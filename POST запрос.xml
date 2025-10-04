@@ -1,0 +1,14 @@
+// POST запрос
+const postData = {
+    "foo1": "bar1",
+    "foo2": "bar2"
+};
+
+pm.test("Проверка статуса ответа", () => {
+    pm.response.to.have.status(201);
+});
+
+pm.test("Проверка тела ответа POST", () => {
+    const response = pm.response.json();
+    pm.expect(response.data).to.eql(postData);
+});

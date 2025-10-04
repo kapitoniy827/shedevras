@@ -1,0 +1,9 @@
+// DELETE запрос
+pm.test("Проверка статуса ответа", () => {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Проверка тела ответа DELETE", () => {
+    const response = pm.response.json();
+    pm.expect(response.message).to.equal("User deleted!");
+});

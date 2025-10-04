@@ -1,0 +1,13 @@
+// PATCH запрос
+const patchData = {
+    "status": "active"
+};
+
+pm.test("Проверка статуса ответа", () => {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Проверка тела ответа PATCH", () => {
+    const response = pm.response.json();
+    pm.expect(response.data).to.eql(patchData);
+});
